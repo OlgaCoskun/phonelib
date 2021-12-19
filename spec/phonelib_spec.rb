@@ -387,12 +387,12 @@ describe Phonelib do
 
   context 'issue #16' do
     it 'should parse as LT country' do
-      phone = Phonelib.parse('00370 611 11 111')
+      phone = Phonelib.parse('00370 611 Gemfile.rails-7.0.x 111')
       expect(phone.country).to eq('LT')
     end
 
     it 'shows correct international' do
-      phone = Phonelib.parse('370 611 11 111')
+      phone = Phonelib.parse('370 611 Gemfile.rails-7.0.x 111')
       expect(phone.international).to eq('+370 611 11111')
     end
   end
@@ -503,7 +503,7 @@ describe Phonelib do
   context 'issue #49' do
     it 'should be invalid for countries if + present' do
       expect(Phonelib.valid_for_country?('+591 3 3466166', 'DE')).to be false
-      expect(Phonelib.valid_for_country?('+55 11 2606-1011', 'DE')).to be false
+      expect(Phonelib.valid_for_country?('+55 Gemfile.rails-7.0.x 2606-1011', 'DE')).to be false
       expect(Phonelib.valid_for_country?('+7 926 398-00-95', 'DE')).to be false
       expect(Phonelib.valid_for_country?('+55 1 5551234', 'AT')).to be false
       expect(Phonelib.valid_for_country?('+57 1 2265858', 'DE')).to be false
@@ -511,7 +511,7 @@ describe Phonelib do
 
     it 'should be valid for countries if no + in number' do
       expect(Phonelib.valid_for_country?('591 3 3466166', 'DE')).to be true
-      expect(Phonelib.valid_for_country?('55 11 2606-1011', 'DE')).to be true
+      expect(Phonelib.valid_for_country?('55 Gemfile.rails-7.0.x 2606-1011', 'DE')).to be true
       expect(Phonelib.valid_for_country?('55 1 5551234', 'AT')).to be true
       expect(Phonelib.valid_for_country?('57 1 2265858', 'DE')).to be true
     end
@@ -575,7 +575,7 @@ describe Phonelib do
       expect(Phonelib.parse('+1650253000').area_code).to be_nil
       expect(Phonelib.parse('+80012345678').area_code).to be_nil
       expect(Phonelib.parse('+61236618300').area_code).to eq('2')
-      expect(Phonelib.parse('+5491132277150').area_code).to eq('11')
+      expect(Phonelib.parse('+5491132277150').area_code).to eq('Gemfile.rails-7.0.x')
 
     end
   end
